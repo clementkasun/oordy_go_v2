@@ -2,7 +2,7 @@ package routes
 
 import (
 	"fiber_app/controllers" // Your controllers package
-	"fiber_app/middlewares" // Your middlewares package
+	// "fiber_app/middlewares" // Your middlewares package
 
 	"github.com/gofiber/fiber/v2"
 )
@@ -24,7 +24,7 @@ func registerAdminRoutes(app *fiber.App) {
 	adminGroup := app.Group("/admin") // Group all admin routes
 
 	// Add middleware for admin routes (e.g., authentication)
-	adminGroup.Use(middlewares.AuthMiddleware)
+	// adminGroup.Use(middlewares.AuthMiddleware)
 
 	// Define routes and map to controller methods
 	adminGroup.Get("/", controllers.AdminController.AdminDashboard)
@@ -36,7 +36,7 @@ func registerAdminRoutes(app *fiber.App) {
 func RegisterUserRoutes(app *fiber.App, userController controllers.IUserController) {
 	userGroup := app.Group("/users")
 
-	userGroup.Use(middlewares.AuthMiddleware)
+	// userGroup.Use(middlewares.AuthMiddleware)
 
 	// Using the IUserController interface methods
 	userGroup.Post("/createUser", userController.CreateUser)  // Create user

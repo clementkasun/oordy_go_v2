@@ -34,28 +34,42 @@ func NewUserController() IUserController {
 
 // LoginPage handles requests to display the login page
 func (uc *UserController) LoginPage(c *fiber.Ctx) error {
+	// Log the IP and HTTP method of the incoming request
 	log.Printf("Login page requested by %s from %s", c.IP(), c.Method())
+
+	// Attempt to send the login HTML page directly
 	if err := c.SendFile("./static/admin-lte-master/dist/pages/user/login.html"); err != nil {
+		// If there's an error loading the file, log the error and return a JSON response with an error message
 		log.Printf("Error loading login page: %v", err)
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
 			"error":   "Unable to load Admin Login Page",
 			"details": err.Error(),
 		})
 	}
-	return c.Status(fiber.StatusOK).JSON(resources.SuccessResponse("Login page loaded successfully", nil))
+
+	// If the file is loaded successfully, the login page will be served directly
+	// No need for additional JSON response, the HTML page is automatically returned
+	return nil
 }
 
 // RegisterPage handles requests to display the register page
 func (uc *UserController) RegisterPage(c *fiber.Ctx) error {
+	// Log the IP and HTTP method of the incoming request
 	log.Printf("Register page requested by %s from %s", c.IP(), c.Method())
+
+	// Attempt to send the register HTML page directly
 	if err := c.SendFile("./static/admin-lte-master/dist/pages/user/register.html"); err != nil {
+		// If there's an error loading the file, log the error and return a JSON response with an error message
 		log.Printf("Error loading register page: %v", err)
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
 			"error":   "Unable to load Register Page",
 			"details": err.Error(),
 		})
 	}
-	return c.Status(fiber.StatusOK).JSON(resources.SuccessResponse("Register page loaded successfully", nil))
+
+	// If the file is loaded successfully, the register page will be served directly
+	// No need for additional JSON response, the HTML page is automatically returned
+	return nil
 }
 
 // CreateUser handles creating a new user
