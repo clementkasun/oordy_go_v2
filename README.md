@@ -38,5 +38,5 @@ Oordy is a rideshare platform built to connect riders with drivers. This reposit
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/oordy-backend-v2.git
+   git clone https://github.com/yourusername/oordy_go_v2.git
    cd oordy-backend-v2
