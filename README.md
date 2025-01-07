@@ -1,4 +1,5 @@
 # Oordy App - Backend Version 2 (Rideshare)
+![Oordy Logo](https://www.oordy.com/wp-content/uploads/2024/05/Oordy-Logo-Web-01.png)
 
 ## Overview
 
